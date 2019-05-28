@@ -1,6 +1,5 @@
-# Binaries
-main
-test
+# Build Directory
+/build
 
 # Prerequisites
 *.d
