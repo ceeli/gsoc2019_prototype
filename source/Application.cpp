@@ -1,4 +1,5 @@
 #include <string>
+#include <exception>
 #include "Document.h"
 #include "Application.h"
 
@@ -14,6 +15,8 @@ Application& Application::getApplication()
 
 Document Application::newDocument(std::string name)
 {
+    if (!running)
+        throw AppNotRunningError();
     Document doc;
     documents[name] = doc;
     return doc;
@@ -21,5 +24,9 @@ Document Application::newDocument(std::string name)
 
 Document Application::getDocument(std::string name)
 {
-    return documents.at(name);
+    try {
+        return documents.at(name);
+    } catch (std::out_of_range& e) {
+        throw MissingDocumentError();
+    }
 }

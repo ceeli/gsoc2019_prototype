@@ -4,6 +4,8 @@
 #include <unordered_map>
 #include "Document.h"
 
+class AppNotRunningError : public std::exception {};
+class MissingDocumentError : public std::exception {};
 
 class Application {
     public:
