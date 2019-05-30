@@ -14,7 +14,7 @@ Interpreter::Interpreter()
     Py_Initialize();
 }
 
-void Interpreter::runString(std::string cmd)
+int Interpreter::runString(std::string cmd)
 {
-    PyRun_SimpleString(cmd.c_str());
+    return PyRun_SimpleString(cmd.c_str());
 }

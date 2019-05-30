@@ -7,5 +7,5 @@ class Interpreter {
     public:
         Interpreter();
         static Interpreter& getInterpreter();
-        void runString(std::string cmd);
+        int runString(std::string cmd);
 };
